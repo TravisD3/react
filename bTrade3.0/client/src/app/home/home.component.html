@@ -1,0 +1,20 @@
+<mat-card>
+    <mat-card-title>Dashboard</mat-card-title>
+    <mat-card-content>
+
+        <div *ngIf="info.token; else loggedOut">
+            <h4 class="text-primary">Welcome to bTrade!</h4>
+            <!-- <p>
+    <strong>Username:</strong> {{info.username}}<br/>
+    <strong>Roles:</strong> {{info.authorities}}<br />
+    <strong>Token:</strong> {{info.token}}.
+  </p>
+  <button class="btn btn-secondary" (click)="logout()">Logout</button> -->
+        </div>
+
+        <ng-template #loggedOut>
+            Please login.
+        </ng-template>
+
+    </mat-card-content>
+</mat-card>

@@ -1,0 +1,14 @@
+<mat-card>
+        <!-- <mat-card-title>Admin Panel</mat-card-title> -->
+        <br>
+        <mat-card-content>
+            <button mat-raised-button color="primary" [routerLink]="['/admin/users']" class="admin-panel-button btn btn-primary d-flex justify-content-center d-md-table mx-auto">List All Users</button>
+        </mat-card-content>
+        <mat-card-content>
+          <button mat-raised-button color="primary" [routerLink]="['/admin/users/search']" class="admin-panel-button btn btn-primary d-flex justify-content-center d-md-table mx-auto">Search User</button>
+        </mat-card-content>
+        <mat-card-content>
+          <button mat-raised-button color="primary" (click)="openAddDiag()" class="admin-panel-button btn btn-primary d-flex justify-content-center d-md-table mx-auto">Add User</button>
+        </mat-card-content>
+
+</mat-card>

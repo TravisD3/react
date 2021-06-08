@@ -1,0 +1,8 @@
+.admin-user-delete-confirm-container {
+  display: flex;
+  justify-content: space-between;
+}
+
+.admin-user-delete-confirm-button {
+  width: 40%;
+}

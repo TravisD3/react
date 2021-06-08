@@ -1,0 +1,50 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<kb-project>
+ <depends-on-projects/>
+ <used-by-projects/>
+ <paths/>
+ <validation>
+  <el>
+   <linked-el length="25" name="%0" offset="527" path="%1"/>
+   <linked-el length="29" name="%0" offset="599" path="%1"/>
+   <linked-el length="32" name="%2" offset="529" path="%3"/>
+   <linked-el length="27" name="%2" offset="673" path="%3"/>
+   <linked-el length="29" name="%4" offset="599" path="%1"/>
+   <linked-el length="32" name="%5" offset="529" path="%3"/>
+   <linked-el length="27" name="%5" offset="673" path="%3"/>
+   <linked-el length="32" name="%6" offset="529" path="%3"/>
+   <linked-el length="27" name="%6" offset="673" path="%3"/>
+   <linked-el length="25" name="%7" offset="527" path="%1"/>
+   <linked-el length="29" name="%7" offset="599" path="%1"/>
+   <linked-el length="32" name="%8" offset="529" path="%3"/>
+   <linked-el length="27" name="%8" offset="673" path="%3"/>
+   <linked-el length="25" name="%9" offset="527" path="%1"/>
+   <linked-el length="32" name="%10" offset="529" path="%3"/>
+   <linked-el length="27" name="%10" offset="673" path="%3"/>
+   <linked-el length="106" name="%11" offset="29957" path="%12"/>
+   <linked-el length="106" name="%11" offset="29957" path="%13"/>
+  </el>
+ </validation>
+ <aliases>
+  <alias
+   path="/server/.metadata/.plugins/org.jboss.tools.central/valid_jboss_buzz.xml" value="%13"/>
+  <alias path="org.eclipse.m2e.log.dir" value="%2"/>
+  <alias path="btrade.app.jwtExpiration" value="%4"/>
+  <alias path="org" value="%5"/>
+  <alias path="btrade.app.jwtSecret" value="%9"/>
+  <alias path="org.eclipse.m2e" value="%10"/>
+  <alias
+   path="/server/.metadata/.plugins/org.jboss.tools.central/jboss_buzz.xml" value="%12"/>
+  <alias path="btrade" value="%0"/>
+  <alias path="org.eclipse" value="%6"/>
+  <alias
+   path="/server/src/main/java/com/btrade/server/security/jwt/JwtProvider.java" value="%1"/>
+  <alias path="btrade.app" value="%7"/>
+  <alias path="org.eclipse.m2e.log" value="%8"/>
+  <alias path="HOME" value="%11"/>
+  <alias
+   path="/server/.metadata/.plugins/org.eclipse.m2e.logback.configuration/logback.1.16.0.20200318-1040.xml" value="%3"/>
+ </aliases>
+ <includes/>
+ <uris/>
+</kb-project>

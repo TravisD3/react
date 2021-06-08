@@ -1,0 +1,75 @@
+.trade-form {
+  min-width: 150px;
+  max-width: 400px;
+  width: 100%;
+  margin-left: 30px;
+  line-height: 100%;
+}
+
+.example-form {
+  min-width: 150px;
+  max-width: 400px;
+  width: 100%;
+}
+
+.example-full-width {
+  width: 100%;
+}
+
+
+.invalid-feedback:not(form)  {
+  font-size: small;
+  text-align: left;
+  color: #D8000C;
+  background-color: #FFD2D2;
+}
+
+.valid-feedback:not(form)  {
+  font-size: small;
+  text-align: left;
+}
+
+div {
+  line-height: 100%;
+}
+
+table {
+  font-family: arial, sans-serif;
+  border-collapse: collapse;
+  width: 100%;
+  font-weight: bold;
+}
+
+td:nth-child(1) {
+  border: 1px solid #4d4c4c;
+  text-align: left;
+  padding: 8px;
+  width: 150px;
+  color:#3b3a30;
+}
+
+td:nth-child(2) {
+  border: 1px solid #4d4c4c;
+  text-align: left;
+  padding: 8px;
+  width: 250px;
+  color:#674d3c;
+}
+
+tr:nth-child(odd) {
+  background-color: #b8d1f3;
+}
+tr:nth-child(even) {
+  background-color: #dae5f4;
+}
+::ng-deep snack-bar-container.red-snackbar {
+  background: #f7242f;
+}
+::ng-deep snack-bar-container.green-snackbar {
+  background: #58c76b;
+}
+
+::ng-deep .mat-simple-snackbar-action button {
+  font-weight: bold;
+  color: #5960CC;
+  }

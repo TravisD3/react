@@ -1,0 +1,58 @@
+<mat-card>
+  <mat-card-title>Profile</mat-card-title>
+  <mat-card-content>
+    <mat-list>
+      <mat-list-item *ngFor="let profile of profiles">
+        <img mat-list-avatar src="{{profile.giphyUrl}}" alt="{{profile.name}}">
+        <h3 mat-line>
+          <a mat-button color="primary" [routerLink]="['/profile-edit', profile.id]">Edit Profile</a>
+        </h3>
+      </mat-list-item>
+      
+      <mat-list-item *ngFor ="let profile of profiles">
+        <div mat-line>First Name :  {{profile.first_name}}</div> 
+      </mat-list-item>
+      
+      <mat-list-item *ngFor="let profile of profiles">
+        <div mat-line>Last Name :  {{profile.last_name}}</div> 
+      </mat-list-item>
+      
+       <mat-list-item *ngFor="let profile of profiles">
+        <div mat-line>User Email :  {{profile.email}}</div> 
+      </mat-list-item>
+      
+      <mat-list-item *ngFor ="let profile of profiles">
+        <div mat-line>Phone Number :  {{profile.phone}}</div> 
+      </mat-list-item>
+      
+      <mat-list-item *ngFor ="let profile of profiles">
+        <div mat-line>Address1 :  {{profile.address1}}</div> 
+      </mat-list-item>
+      
+      <mat-list-item *ngFor ="let profile of profiles">
+        <div mat-line>Address2:  {{profile.address2}}</div> 
+      </mat-list-item>
+      
+      <mat-list-item *ngFor="let profile of profiles">
+        <div mat-line>City :  {{profile.city}} </div> 
+      </mat-list-item>
+      <mat-list-item *ngFor="let profile of profiles">
+        <div mat-line>State :  {{profile.state}}</div> 
+      </mat-list-item>
+      <mat-list-item *ngFor="let profile of profiles">
+        <div mat-line>Zip Code :  {{profile.zip}}</div> 
+      </mat-list-item>
+      <mat-list-item *ngFor="let profile of profiles">
+        <div mat-line>Country :  {{profile.country}}</div> 
+      </mat-list-item>
+      <mat-list-item *ngFor="let profile of profiles">
+        <div mat-line>Active :  {{profile.active}}</div> 
+      </mat-list-item>
+ 
+      
+    </mat-list>
+  </mat-card-content>
+
+  <button mat-fab color="primary" [routerLink]="['/profile-add']">Add</button>
+</mat-card>
+

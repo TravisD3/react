@@ -1,0 +1,61 @@
+<mat-card>
+    <mat-card-title>Portfolios</mat-card-title>
+    <mat-card-content>
+
+        <mat-form-field>
+            <input matInput (keyup)="applyFilter($event.target.value)" placeholder="Filter">
+        </mat-form-field>
+
+        <table mat-table [dataSource]="dataSource" matSort class="mat-elevation-z8">
+
+            <ng-container matColumnDef="portfolioid">
+                <th mat-header-cell *matHeaderCellDef mat-sort-header> No. </th>
+                <td mat-cell *matCellDef="let element"> {{element.portfolioid}} </td>
+            </ng-container>
+
+            <ng-container matColumnDef="acctnum">
+                <th mat-header-cell *matHeaderCellDef mat-sort-header> Account Number</th>
+                <td mat-cell *matCellDef="let element"> {{element.acctnum}} </td>
+            </ng-container>
+
+            <ng-container matColumnDef="quantity">
+                <th mat-header-cell *matHeaderCellDef mat-sort-header> Quantity </th>
+                <td mat-cell *matCellDef="let element"> {{element.quantity}} </td>
+            </ng-container>
+
+            <ng-container matColumnDef="symbol">
+                <th mat-header-cell *matHeaderCellDef mat-sort-header> Symbol</th>
+                <td mat-cell *matCellDef="let element"> {{element.symbol}} </td>
+            </ng-container>
+
+            <ng-container matColumnDef="marketvalue">
+                <th mat-header-cell *matHeaderCellDef mat-sort-header> Marketvalue </th>
+                <td mat-cell *matCellDef="let element"> {{element.marketvalue}} </td>
+            </ng-container>
+
+            <ng-container matColumnDef="daysgain">
+                <th mat-header-cell *matHeaderCellDef mat-sort-header> Daysgain </th>
+                <td mat-cell *matCellDef="let element"> {{element.daysgain}} </td>
+            </ng-container>
+
+            <ng-container matColumnDef="totalgain">
+                <th mat-header-cell *matHeaderCellDef mat-sort-header> Totalgain </th>
+                <td mat-cell *matCellDef="let element"> {{element.totalgain}} </td>
+            </ng-container>
+
+            <ng-container matColumnDef="percentgain">
+                <th mat-header-cell *matHeaderCellDef mat-sort-header> Percentgain </th>
+                <td mat-cell *matCellDef="let element"> {{element.percentgain}} </td>
+            </ng-container>
+
+            <ng-container matColumnDef="last">
+                <th mat-header-cell *matHeaderCellDef mat-sort-header> Last </th>
+                <td mat-cell *matCellDef="let element"> {{element.last}} </td>
+            </ng-container>
+
+            <tr mat-header-row *matHeaderRowDef="displayedColumns"></tr>
+            <tr mat-row *matRowDef="let row; columns: displayedColumns;"></tr>
+        </table>
+
+    </mat-card-content>
+</mat-card>
