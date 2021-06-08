@@ -1,0 +1,29 @@
+.my-dialog {
+  overflow: hidden;
+  border-radius: 0;
+  padding: 0;
+  margin: -1.4em;
+  border: .3em #FFD2D2 solid;
+}
+
+::ng-deep .mat-input-wrapper{
+  width: 20em !important;
+}
+mat-card {
+  height: 30%;
+  background-color: #ffebeb;
+  /*color: #8ddbee;*/
+}
+
+mat-card-title {
+  /*justify-self: flex-start;*/
+}
+
+.admin-user-edit-buttons-container {
+  display: flex;
+  justify-content: space-between;
+}
+
+.admin-user-edit-button {
+  width: 30%;
+}

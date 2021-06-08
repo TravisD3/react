@@ -1,0 +1,74 @@
+<mat-card>
+    <form #profileForm="ngForm" (ngSubmit)="save(profileForm.value)">
+        <mat-card-header>
+            <mat-card-title>
+                <h2>{{profile.href ? 'Edit' : 'Add'}} Profile</h2>
+            </mat-card-title>
+        </mat-card-header>
+        <mat-card-content>
+            <input type="hidden" name="href" [(ngModel)]="profile.href">
+            <mat-form-field>
+                <input matInput placeholder="First Name" [(ngModel)]="profile.first_name" required name="first_name" #name>
+            </mat-form-field><br>
+
+            <mat-form-field>
+                <input matInput placeholder="Last Name" [(ngModel)]="profile.last_name" required name="last_name" #name>
+            </mat-form-field><br>
+
+            <mat-form-field>
+                <input matInput placeholder="Email" [(ngModel)]="profile.email" required name="email" #name>
+            </mat-form-field><br>
+
+            <mat-form-field>
+                <input matInput placeholder="Phone" [(ngModel)]="profile.phone" required name="phone" #name>
+            </mat-form-field><br>
+
+            <mat-form-field>
+                <input matInput placeholder="Address1" [(ngModel)]="profile.address1" required name="address1" #name>
+            </mat-form-field><br>
+
+            <mat-form-field>
+                <input matInput placeholder="Address2" [(ngModel)]="profile.address2" required name="address2" #name>
+            </mat-form-field><br>
+
+            <mat-form-field>
+                <input matInput placeholder="City" [(ngModel)]="profile.city" required name="city" #name>
+            </mat-form-field><br>
+
+            <mat-form-field>
+                <input matInput placeholder="State" [(ngModel)]="profile.state" name="state" #name>
+            </mat-form-field><br>
+
+            <mat-form-field>
+                <input matInput placeholder="Zip Code" [(ngModel)]="profile.zip" name="zip" #name>
+            </mat-form-field><br>
+
+            <mat-form-field>
+
+                <input type="text" [(ngModel)]="typeInStockSymbol" [ngModelOptions]="{standalone: true}" (input)="onInputChanged_country($event.target.value)" placeholder="Country" aria-label="Number" matInput [matAutocomplete]="auto">
+
+                <mat-autocomplete #auto="matAutocomplete">
+                    <mat-option *ngFor="let homeland of homelands" [value]="homeland.countrySymbol" (click)="setTheCountrySymbol(homeland.countrySymbol, homeland.mycountry)">
+                        {{homeland.mycountry}}
+                    </mat-option>
+                </mat-autocomplete>
+
+            </mat-form-field><br>
+
+            <mat-form-field>
+                <input matInput placeholder="Active" [(ngModel)]="profile.active" name="active" #name>
+            </mat-form-field><br>
+
+        </mat-card-content>
+        <mat-card-actions>
+            <button mat-raised-button color="primary" type="submit" [disabled]="!profileForm.form.valid">Save</button>
+            <button mat-raised-button color="secondary" (click)="remove(profile.href)" *ngIf="profile.href" type="button">Delete</button>
+            <a mat-button routerLink="/profile">Cancel</a>
+        </mat-card-actions>
+        <mat-card-footer>
+            <div class="giphy">
+                <img src="{{profile.giphyUrl}}" alt="{{profile.name}}">
+            </div>
+        </mat-card-footer>
+    </form>
+</mat-card>

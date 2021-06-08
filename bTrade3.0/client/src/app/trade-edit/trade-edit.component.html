@@ -1,0 +1,189 @@
+<mat-card>
+    <mat-card-title>New Trade</mat-card-title>
+    <mat-card-content>
+        <div>
+            <div class="col-md-6">
+
+                <form class="trade-form">
+                    <!-- <h2 class="text-center">New Trade</h2>
+    <br><br> -->
+                    <!-- -------Select trade type --------- -->
+
+                    <b>
+      <font color= #5960CC>Please select the type of your trade</font>
+    </b>
+
+                    <mat-form-field>
+                        <mat-select [(ngModel)]="trade.tradeType" [ngModelOptions]="{standalone: true}" (ngModelChange)="calculateTradingPrice(trade.tradeTradingPrice, trade.tradeNumberOfShares); getStockPrice(trade.tradeType, trade.tradeStockSymbol)">
+                            <mat-option value="Buy">Buy</mat-option>
+                            <mat-option value="Sell">Sell</mat-option>
+                        </mat-select>
+                    </mat-form-field>
+
+                    <!-- -------Select Stock and search for price --------- -->
+                    <br><br>
+                    <form class="example-form">
+                        <b>
+        <font color= #5960CC>Please choose which stock you want to {{trade.tradeType}} </font>
+      </b>
+                        <br><br>
+                        <mat-form-field class="example-form">
+                            <input type="text" [(ngModel)]="typeInStockSymbol" [ngModelOptions]="{standalone: true}" (input)="onInputChanged($event.target.value)" placeholder="Serch and Pick one" aria-label="Number" matInput [matAutocomplete]="auto">
+                            <mat-autocomplete #auto="matAutocomplete">
+                                <mat-option *ngFor="let stock of stocks" [value]="stock.stockSymbol" (click)="setTheStockSymbol(stock.stockSymbol, stock.name)">
+                                    {{stock.name}}
+                                </mat-option>
+                            </mat-autocomplete>
+                        </mat-form-field>
+                    </form>
+
+                    <!-- ------- Show error message if no valid stock or price --------- -->
+
+                    <form [formGroup]="registerForm">
+
+                        <div class="column small-12 large-2">
+                            <div *ngIf="submitted && f.stockPrice.errors && f.stockSymbol.errors;else other_content" class="invalid-feedback">
+                                <div *ngIf="f.stockPrice.errors.required || f.stockSymbol.errors.required"> Please select a valid Stock</div>
+                            </div>
+                        </div>
+                        <ng-template #other_content>
+                            <div class="valid-feedback"><br></div>
+                        </ng-template>
+
+                        <table *ngIf="trade.tradeStockSymbol != null ">
+                            <tr>
+                                <td>
+                                    <font>Stock Name </font>
+                                </td>
+                                <td>
+                                    <font>{{stockName}}</font>
+                                </td>
+                            </tr>
+                            <tr>
+                                <td>
+                                    <font>Stock Symbol </font>
+                                </td>
+                                <td>
+                                    <font>{{trade.tradeStockSymbol}}</font>
+                                </td>
+                            </tr>
+                            <tr>
+                                <td>
+                                    <font>Current Price </font>
+                                </td>
+                                <td>
+                                    <font>{{trade.tradeCurrentPrice | currency }}</font>
+                                </td>
+                            </tr>
+                        </table>
+                        <!-- ------get account and account available balance ---------- -->
+
+                        <br><br>
+                        <div class="form-group">
+                            <b>
+          <font color= #5960CC>Please select which account for this trade </font>
+        </b>
+                            <br>
+                            <mat-form-field>
+                                <mat-select formControlName="accountBalance" [(ngModel)]="Account" class="form-control" (ngModelChange)="setAccount(Account); calculateTradingPrice(trade.tradeTradingPrice, trade.tradeNumberOfShares)" [ngClass]="{ 'is-invalid': submitted && f.accountBalance.errors}"
+                                    placeholder="Select Account">
+                                    <br />
+                                    <mat-option *ngFor="let account of accounts" [value]="account">
+                                        {{account.acct_num}}
+                                    </mat-option>
+                                </mat-select>
+                            </mat-form-field>
+                            <div *ngIf="submitted && f.accountBalance.errors;else other_content" class="invalid-feedback">
+                                <div *ngIf="f.accountBalance.errors.required"> Please select a valid account</div>
+                            </div>
+
+                            <table *ngIf="balance != null ">
+                                <tr>
+                                    <td>
+                                        <font>Current Blance </font>
+                                    </td>
+                                    <td>
+                                        <font>{{ balance | currency }} </font>
+                                    </td>
+                            </table>
+                        </div>
+
+                        <!-- ------get the shares and Trade Price ---------- -->
+                        <br><br>
+                        <div class="form-group">
+                            <b>
+          <font color= #5960CC>Please type in how many shares you want to {{trade.tradeType}} </font>
+        </b>
+                            <br>
+                            <mat-form-field>
+                                <input matInput placeholder="Number of Shares" formControlName="tradeNumberOfShares" [(ngModel)]="trade.tradeNumberOfShares" (ngModelChange)="calculateTradingPrice(trade.tradeTradingPrice, trade.tradeNumberOfShares)" class="form-control" [ngClass]="{ 'is-invalid': submitted && f.tradeNumberOfShares.errors}"
+                                />
+                            </mat-form-field>
+                            <div *ngIf="submitted && f.tradeNumberOfShares.errors;else other_content" class="invalid-feedback">
+                                <div *ngIf="f.tradeNumberOfShares.errors.required"> Number of Shares is required</div>
+                                <div *ngIf="f.tradeNumberOfShares.errors.pattern"> Number of Shares must be positive number</div>
+                            </div>
+                            <br><br>
+                            <b>
+          <font color= #5960CC>Please type in the price you want to trade </font>
+        </b>
+                            <br>
+                            <mat-form-field>
+                                <input matInput placeholder="Trade Price" formControlName="tradeTradingPrice" [(ngModel)]="trade.tradeTradingPrice" (ngModelChange)="calculateTradingPrice(trade.tradeTradingPrice, trade.tradeNumberOfShares)" class="form-control" [ngClass]="{ 'is-invalid': submitted && f.tradeTradingPrice.errors}"
+                                />
+                            </mat-form-field>
+
+                            <div *ngIf="submitted && f.tradeTradingPrice.errors;else other_content" class="invalid-feedback">
+                                <div *ngIf="f.tradeTradingPrice.errors.required"> Trade Price is required</div>
+                                <div *ngIf="f.tradeTradingPrice.errors.pattern"> Trade Price must be positive number</div>
+                            </div>
+                        </div>
+
+                        <!-- -------Select order type --------- -->
+                        <br><br>
+                        <div class="form-group">
+                            <b>
+          <font color= #5960CC>Please select the order type for this trade </font>
+        </b>
+                            <br>
+                            <mat-form-field>
+                                <mat-select [(value)]="trade.orderTypeId">
+                                    <mat-option *ngFor="let orderType2 of orderTypes" [value]="orderType2.orderTypeId">{{orderType2.orderType}}</mat-option>
+                                </mat-select>
+                            </mat-form-field>
+                        </div>
+
+                        <!-- ------- Show the total price and remain balance after this trade --------- -->
+                        <div *ngIf="this.trade.remainFund < 0;else other_content" class="invalid-feedback">
+                            You current ballance is not enough for this trade !!
+                        </div>
+
+                        <table *ngIf="this.trade.remainFund >= 0 && !f.tradeNumberOfShares.errors && !f.tradeTradingPrice.errors">
+                            <tr>
+                                <td>
+                                    <font>Total Price </font>
+                                </td>
+                                <td>
+                                    <font>{{ trade.totalPrice | currency }}</font>
+                                </td>
+                            </tr>
+                            <tr>
+                                <td>
+                                    <font>Remain Balance </font>
+                                </td>
+                                <td>
+                                    <font>{{trade.remainFund | currency }}</font>
+                                </td>
+                            </tr>
+                        </table>
+
+                        <br><br>
+                        <button mat-raised-button color="primary" class="btn btn-success" (click)="createTrade()">Order Trade</button>
+                    </form>
+
+                </form>
+            </div>
+        </div>
+    </mat-card-content>
+
+</mat-card>

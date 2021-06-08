@@ -1,0 +1,73 @@
+<mat-card>
+  <mat-card-title>Trade</mat-card-title>
+  <mat-card-content>
+    	<label for="tradeType">Choose the trade type:</label>
+				<select name = "tradeType" ng-model="tradeType"> <br/>
+					<option value ="Buy">Buy</option>
+					<option value ="Sell">Sell</option>
+				</select>
+        <br/>
+        
+        <label>Stock name
+            <input type = "text" name="symbolOfStock" ng-model="companyName">
+            </label><br/>
+            <button type="button" ng-click="getSymbol()">Get Symbol</button>
+    
+            <ul>
+              <li ng-repeat="symbol in list" ng-model = "stockSymbol">{{symbol.stockSymbol}}</li>
+            </ul>
+
+            <label>Stock Symbol
+                <input type = "text" name="thesymbolOfStock" ng-model="stockSymbol">
+                </label><br/>
+        
+                <button type="button" ng-click="getPrice()">Get Price</button>
+        
+                <ul>
+                  <li ng-repeat="price in prices">{{price.stockPrice}}</li>
+                </ul>
+        
+                <!--get balance-->
+                <button type="button" ng-click="getBalance()">Get balance: </button>{{balance}} 
+                <pre>current fund: {{balance}}</pre>
+                <br/>
+        
+                <label>Price for Trade:
+                <input type = "number" name="tradingPrice" ng-model="tradePrice">
+                </label><br/>
+        
+        
+                <label>Trade: Number of shares:
+                <input type = "number" name="numberOfShare" ng-model="numberOfShare">
+                </label><br/>
+        
+        
+                    <!--  Bind the pagination component to be displayed. -->
+                    <!--
+        
+                    <pagination direction-links="true" boundary-links="true"
+                          total-items="Accounts.totalResults" page="Accounts.currentPage" items-per-page="Accounts.pageSize"
+                          on-select-page="refreshGrid(page)">
+                    </pagination>
+                    -->	
+        
+                <pre>Total Price: {{tradePrice*numberOfShare}}</pre>
+                <button type="button" ng-click="saveItems()">Save Trade</button>   	
+
+
+
+
+
+    <mat-list>
+      <mat-list-item *ngFor="let trade of trades">
+        <h3 mat-line>
+          <a mat-button>{{trade.tradeStockSymbol}}</a>
+          
+        </h3>
+      </mat-list-item>
+
+    </mat-list>
+  </mat-card-content>
+
+  <button mat-fab color="primary" [routerLink]="['/trade']">Add</button>
+</mat-card>

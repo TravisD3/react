@@ -1,0 +1,62 @@
+<div id="users-container" class = "container-fluid">
+<mat-card class="table-content col-sm-10">
+  <mat-card-title  class="table-header-title">User List</mat-card-title>
+  <mat-card-content>
+    <mat-table class="user-table mat-elevation-z8" [dataSource]="users">
+
+      <ng-container matColumnDef="id">
+        <mat-header-cell *matHeaderCellDef  class="user_id_column">Id</mat-header-cell>
+        <mat-cell *matCellDef="let user"  class="user_id_column">{{user.id}}</mat-cell>
+      </ng-container>
+
+      <ng-container matColumnDef="username">
+        <mat-header-cell *matHeaderCellDef class="user_name_column">Username</mat-header-cell>
+        <mat-cell *matCellDef="let user" class="user_name_column">{{user.username}}</mat-cell>
+      </ng-container>
+
+      <ng-container matColumnDef="name">
+        <mat-header-cell *matHeaderCellDef  class="name_column">Name</mat-header-cell>
+        <mat-cell *matCellDef="let user" class="name_column">
+          {{user.name}}
+        </mat-cell>
+      </ng-container>
+
+      <!-- <ng-container matColumnDef="email">
+          <mat-header-cell *matHeaderCellDef class="user_name_column">Email</mat-header-cell>
+          <mat-cell *matCellDef="let user" class="user_name_column">{{user.email}}</mat-cell>
+      </ng-container> -->
+
+      <ng-container matColumnDef="password">
+          <mat-header-cell *matHeaderCellDef class="password_column">Password</mat-header-cell>
+          <mat-cell *matCellDef="let user" class="password_column">{{user.password}}
+          </mat-cell>
+        </ng-container>
+
+      <ng-container matColumnDef="modify">
+        <mat-header-cell *matHeaderCellDef class="modify_column">Modify</mat-header-cell>
+        <mat-cell *matCellDef="let user" class="modify_column">
+          <button mat-raised-button color="primary" (click)="openEditDiag(user)">Modify</button>
+        </mat-cell>
+      </ng-container>
+
+      <mat-header-row class="user-row header-row" *matHeaderRowDef="columnsToDisplay; sticky: true"></mat-header-row>
+
+      <mat-row class="user-row" *matRowDef="let user; columns: columnsToDisplay"></mat-row>
+
+    </mat-table>
+  </mat-card-content>
+</mat-card>
+<mat-card class="tool-content col-sm-2">
+  <mat-card-title  class="table-header-title">ToolBox</mat-card-title>
+  <mat-card-content>
+    <button mat-raised-button color="primary" class="tool-button" [routerLink]="['/admin/users/search']">
+      Search User
+    </button><br><br>
+    <button mat-raised-button color="primary" class="tool-button" (click)="openAddDiag()">
+      Add User
+    </button><br><br>
+    <button mat-raised-button color="primary" class="tool-button" (click)="reload()">Refresh</button><br><br>
+    <button mat-raised-button color="primary" class="tool-button" [routerLink]="['/admin']">Back to Admin</button>
+  </mat-card-content>
+</mat-card>
+</div>

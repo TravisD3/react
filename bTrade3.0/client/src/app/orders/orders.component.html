@@ -1,0 +1,103 @@
+<mat-card>
+    <mat-card-title>Order List</mat-card-title>
+    <mat-card-content>
+
+        <mat-form-field>
+            <input matInput (keyup)="applyFilter($event.target.value)" placeholder="I want to find...">
+        </mat-form-field>
+
+        <table mat-table [dataSource]="dataSource" matSort class="mat-elevation-z8">
+
+            <!--- Note that these columns can be defined in any order.
+              The actual rendered columns are set as a property on the row definition" -->
+
+            <!-- TradeID Column -->
+            <ng-container matColumnDef="TradeID">
+                <th mat-header-cell *matHeaderCellDef mat-sort-header> Trade ID </th>
+                <td mat-cell *matCellDef="let element"> {{element.trade_ID}} </td>
+            </ng-container>
+
+            <!-- Account Number Column -->
+            <ng-container matColumnDef="AccountNumber">
+                <th mat-header-cell *matHeaderCellDef mat-sort-header> Account Number </th>
+                <td mat-cell *matCellDef="let element"> {{element.acct_num}} </td>
+            </ng-container>
+
+            <!-- Current Fund Column -->
+            <ng-container matColumnDef="CurrentFund">
+                <th mat-header-cell *matHeaderCellDef mat-sort-header> Current Fund </th>
+                <td mat-cell *matCellDef="let element"> {{element.current_fund}} </td>
+            </ng-container>
+
+            <!-- Remain Fund Column -->
+            <ng-container matColumnDef="RemainFund">
+                <th mat-header-cell *matHeaderCellDef mat-sort-header> Remain Fund </th>
+                <td mat-cell *matCellDef="let element"> {{element.remainfund}} </td>
+            </ng-container>
+
+            <!-- Total Price Column -->
+            <ng-container matColumnDef="TotalPrice">
+                <th mat-header-cell *matHeaderCellDef mat-sort-header> Total Price </th>
+                <td mat-cell *matCellDef="let element"> {{element.total_price}} </td>
+            </ng-container>
+
+            <!-- Current Price Column -->
+            <ng-container matColumnDef="CurrentPrice">
+                <th mat-header-cell *matHeaderCellDef mat-sort-header> Current Price </th>
+                <td mat-cell *matCellDef="let element"> {{element.current_price}} </td>
+            </ng-container>
+
+            <!-- Number of Shares Column -->
+            <ng-container matColumnDef="Shares">
+                <th mat-header-cell *matHeaderCellDef mat-sort-header> Shares </th>
+                <td mat-cell *matCellDef="let element"> {{element.number_of_shares}} </td>
+            </ng-container>
+
+            <!-- Stock Symbol Column -->
+            <ng-container matColumnDef="StockSymbol">
+                <th mat-header-cell *matHeaderCellDef mat-sort-header> Stock Symbol </th>
+                <td mat-cell *matCellDef="let element"> {{element.stock_symbol}} </td>
+            </ng-container>
+
+            <!-- Trade Time Column -->
+            <ng-container matColumnDef="TradeTime">
+                <th mat-header-cell *matHeaderCellDef mat-sort-header> Trade Time </th>
+                <td mat-cell *matCellDef="let element"> {{element.trade_time}} </td>
+            </ng-container>
+
+            <!-- Trading Price Column -->
+            <ng-container matColumnDef="TradingPrice">
+                <th mat-header-cell *matHeaderCellDef mat-sort-header> Trading Price </th>
+                <td mat-cell *matCellDef="let element"> {{element.trading_price}} </td>
+            </ng-container>
+
+            <!--  Trade Type Column -->
+            <ng-container matColumnDef="TradeType">
+                <th mat-header-cell *matHeaderCellDef mat-sort-header> Trade Type </th>
+                <td mat-cell *matCellDef="let element"> {{element.trade_type}} </td>
+            </ng-container>
+
+            <!-- Current Column -->
+            <ng-container matColumnDef="Current">
+                <th mat-header-cell *matHeaderCellDef mat-sort-header> Current </th>
+                <td mat-cell *matCellDef="let element"> {{element.current}} </td>
+            </ng-container>
+
+            <!-- Stock Column -->
+            <ng-container matColumnDef="Stock">
+                <th mat-header-cell *matHeaderCellDef mat-sort-header> Stock </th>
+                <td mat-cell *matCellDef="let element"> {{element.stock}} </td>
+            </ng-container>
+
+            <tr mat-header-row *matHeaderRowDef="displayedColumns"></tr>
+            <tr mat-row *matRowDef="let row; columns: displayedColumns;"></tr>
+
+            <!-- <mat-header-row class="header-row" *matHeaderRowDef="displayedColumns; sticky: true"></mat-header-row>
+            <mat-row *matRowDef="let row; columns: displayedColumns;"></mat-row> -->
+
+        </table>
+
+        <mat-paginator [pageSizeOptions]="[5, 1, 20]" showFirstLastButtons></mat-paginator>
+
+    </mat-card-content>
+</mat-card>

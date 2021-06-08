@@ -1,0 +1,111 @@
+.admin-user-search-button {
+  width: 40%;
+  /*margin-right: 2.5em;*/
+}
+::ng-deep .admin-user-search-input {
+  width: 80% !important;
+}
+
+.admin-user-search-content {
+  width: 25%;
+}
+
+.admin-user-search-result {
+  width: 75%;
+}
+
+#admin-user-search {
+  display: flex;
+  justify-content: space-between;
+}
+
+.admin-user-search-form {
+  margin-bottom: 3em;
+  padding: .8em;
+  border: .2em #58c76b ridge;
+}
+
+.table-content {
+  width: 80%;
+}
+
+.tool-content {
+  width: 20%;
+}
+
+.tool-button {
+  width: 100%;
+}
+
+.table-header-title {
+  text-align: left;
+  color: #4CAF50;
+  font-size: large;
+  font-weight: bold;
+}
+
+mat-table {
+  font-family: "Trebuchet MS", Arial, Helvetica, sans-serif;
+}
+
+mat-header-cell, mat-cell {
+  /*border: .05em solid #ddd;*/
+}
+
+mat-header-cell {
+  /*margin: -0.02em -0.01em;*/
+  /*padding: .5em;*/
+}
+
+mat-cell {
+  /*margin: -0.01em;*/
+  /*padding: .5em;*/
+}
+
+mat-header-cell {
+  color: white;
+  font-size: large;
+  display: flex;
+  justify-content: flex-start;
+}
+
+.uid_no_column {
+  flex: 0 10%;
+}
+
+.modify_column {
+  flex: 0 15%;
+  margin-right: 0;
+  justify-content: center;
+}
+
+.user_name_column {
+  flex: 0 10%;
+}
+
+.name_column {
+  flex: 0 20%;
+}
+.password_column {
+  flex: 0 43%;
+}
+
+mat-header-row {
+  background-color: #4CAF50;
+}
+
+/*
+mat-row {
+  margin-left: .075em;
+  margin-right: .075em;
+}
+*/
+
+
+mat-row:nth-child(odd) {
+  background-color: #f2f2f2;
+}
+
+mat-row:hover {
+  background-color: #ddd;
+}
