@@ -39,6 +39,20 @@ export class AdminUserAddComponent implements OnInit {
       }
       return null;
     };
+    // 2021/6/9 By SLiu:
+    // Add forbiddenEmailValidator function,
+    // to check whether the input email address is duplicated with saved data.
+
+    const forbiddenEmailValidator = (control: AbstractControl): {[key: string]: any} | null => {
+      if (this.users) {
+        for (let i = 0; i !== this.users.length; ++i) {
+          if (this.users[i].email === control.value) {
+            return { email: true };
+          }
+        }
+      }
+      return null;
+    };
 
     const forbiddenUidNoValidator = (control: AbstractControl): {[key: string]: any} | null => {
       if (this.users) {
@@ -54,7 +68,7 @@ export class AdminUserAddComponent implements OnInit {
     this.form = this.fb.group({
       email: ['', [Validators.required,
         Validators.pattern('^[a-z0-9._%+-]+@[a-z0-9.-]+\\.[a-z]{2,4}$'),
-        forbiddenNameValidator]],
+        forbiddenEmailValidator]],
       name: ['', [Validators.required,
         Validators.pattern('[A-Za-z0-9_@#$%&<> ]+'),
         forbiddenNameValidator]],

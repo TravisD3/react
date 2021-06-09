@@ -1,38 +1,92 @@
 <div class="my-dialog">
-<mat-card>
-  <mat-card-header>
-    <mat-card-title><h2 mat-dialog-title>Please Input Info for New User: </h2></mat-card-title>
-  </mat-card-header>
-  <mat-card-content>
-    <br><br>
-    <form [formGroup]="form">
-      <mat-form-field class="mat-input-wrapper">
-        <input matInput type="text" placeholder="User Name" formControlName="username">
-        <mat-hint>Character Set: A-Za-z0-9_@#$%&<></mat-hint>
-        <div [hidden]="!form.hasError('username', ['username'])" class="admin-user-add-error">
-             UserName already exists!
-        </div>
-      </mat-form-field><br><br>
-      <mat-form-field class="mat-input-wrapper">
-        <input matInput type="password" placeholder="Password" formControlName="password">
-        <mat-hint>Min length: 4, Character Set: A-Za-z0-9_@#$%&<></mat-hint>
-      </mat-form-field><br><br>
-      <mat-form-field class="mat-input-wrapper">
-        <input matInput type="text" placeholder="Name" formControlName="name">
-        <mat-hint>Character Set: A-Za-z</mat-hint>
-      </mat-form-field><br><br>      <mat-form-field class="mat-input-wrapper">
-      <input matInput type="text" placeholder="Email" formControlName="email">
-      <mat-hint>Min length: 4, Character Set: A-Za-z0-9_@#$%&<></mat-hint>
-    </mat-form-field><br><br>
-      <mat-form-field class="mat-input-wrapper">
-        <input matInput type="text" placeholder="id" value="{{nextUid()}}" formControlName="id">
-        <div [hidden]="!form.hasError('id', ['id'])" class="admin-user-add-error">
-          Id already exists!
-        </div>
-      </mat-form-field><br><br><br>
-      <button mat-raised-button type="submit" (click)="submit(form)" [disabled]="!form.valid">Submit</button>&nbsp;&nbsp;&nbsp;
-      <button mat-raised-button mat-dialog-close="">Cancel</button>
-    </form>
-  </mat-card-content>
-</mat-card>
+  <mat-card>
+    <mat-card-header>
+      <mat-card-title
+        ><h2 mat-dialog-title>
+          Please Input Info for New User:
+        </h2></mat-card-title
+      >
+    </mat-card-header>
+    <mat-card-content>
+      <br /><br />
+      <form [formGroup]="form">
+        <mat-form-field class="mat-input-wrapper">
+          <input
+            matInput
+            type="text"
+            placeholder="User Name"
+            formControlName="username"
+          />
+          <mat-hint>Character Set: A-Za-z0-9_@#$%&<></mat-hint>
+          <div
+            [hidden]="!form.hasError('username', ['username'])"
+            class="admin-user-add-error"
+          >
+            UserName already exists!
+          </div> </mat-form-field
+        ><br /><br />
+        <mat-form-field class="mat-input-wrapper">
+          <input
+            matInput
+            type="password"
+            placeholder="Password"
+            formControlName="password"
+          />
+          <mat-hint
+            >Min length: 4, Character Set: A-Za-z0-9_@#$%&<></mat-hint
+          > </mat-form-field
+        ><br /><br />
+        <mat-form-field class="mat-input-wrapper">
+          <input
+            matInput
+            type="text"
+            placeholder="Name"
+            formControlName="name"
+          />
+          <mat-hint>Character Set: A-Za-z</mat-hint> </mat-form-field
+        ><br /><br />
+        <mat-form-field class="mat-input-wrapper">
+          <input
+            matInput
+            type="text"
+            placeholder="Email"
+            formControlName="email"
+          />
+          <mat-hint>Min length: 4, Character Set: A-Za-z0-9_@#$%&<></mat-hint>
+<!--     2021/6/9: By SLiu     -->
+<!--     Adding div below, occurring when input user.email has duplicate with saved data.    -->
+          <div
+            [hidden]="!form.hasError('email', ['email'])"
+            class="admin-user-add-error"
+          >
+            Email already exists!
+          </div> </mat-form-field
+        ><br /><br />
+        <mat-form-field class="mat-input-wrapper">
+          <input
+            matInput
+            type="text"
+            placeholder="id"
+            value="{{ nextUid() }}"
+            formControlName="id"
+          />
+          <div
+            [hidden]="!form.hasError('id', ['id'])"
+            class="admin-user-add-error"
+          >
+            Id already exists!
+          </div> </mat-form-field
+        ><br /><br /><br />
+        <button
+          mat-raised-button
+          type="submit"
+          (click)="submit(form)"
+          [disabled]="!form.valid"
+        >
+          Submit</button
+        >&nbsp;&nbsp;&nbsp;
+        <button mat-raised-button mat-dialog-close="">Cancel</button>
+      </form>
+    </mat-card-content>
+  </mat-card>
 </div>
