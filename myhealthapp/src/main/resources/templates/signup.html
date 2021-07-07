@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org" lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Zhu ce</title>
+</head>
+<body>
+    <form action="/register" method="post">
+        <table name = "regTable">
+            <tr colspan="2">
+                Sign Up
+            </tr>
+            <tr>
+                <td> User Name: </td>
+                <td> <input name="userName" type="text" >
+            </tr>
+
+            <tr>
+                <td>Password:</td>
+                <td><input name="password" type="password"></td>
+            </tr>
+
+            <tr>
+                <td>Confirm Password:</td>
+                <td><input name="confirm_password" type="password"></td>
+            </tr>
+
+            <tr>
+                <td>Email:</td>
+                <td><input name="email" type="text"></td>
+            </tr>
+
+            <tr colspan="2">
+                <td> <input type="submit" value="submit"></td>
+            </tr>
+        </table>
+    </form>
+</body>
+</html>

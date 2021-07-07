@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+    <h1>首页 from Templates</h1>
+    <form name ="loginForm" action="/login" method="post" >
+        <table name = "loginTable">
+            <tr colspan="2">
+                Login
+            </tr>
+            <tr>
+                <td> User Name: </td>
+                <td> <input name="username" type="text"></td>
+            </tr>
+
+            <tr>
+                <td>Password:</td>
+                <td><input name="password" type="password"></td>
+            </tr>
+
+            <tr colspan="2">
+                <td> <input type="submit" value="log in"></td>
+
+            </tr>
+        </table>
+    </form>
+
+    <form action="/signup" method="get">
+        <input type="submit" value="sign up">
+    </form>
+
+
+</body>
+</html>
